@@ -45,7 +45,9 @@ void main() {
     expect(find.byKey(const Key('add_button')), findsOneWidget);
   });
 
-  testWidgets('Shows an error when trying to send an empty URL.', (tester) async {
+  testWidgets('Shows an error when trying to send an empty URL.', (
+    tester,
+  ) async {
     await tester.pumpWidget(createWidget());
 
     final context = tester.element(find.byType(ShortcutLinkHome));
