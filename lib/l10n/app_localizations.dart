@@ -140,6 +140,12 @@ abstract class AppLocalizations {
   /// **'Error shortening this URL'**
   String get home_send_url_error;
 
+  /// No description provided for @home_send_empty_url_error.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a URL'**
+  String get home_send_empty_url_error;
+
   /// No description provided for @home_body_description.
   ///
   /// In en, this message translates to:

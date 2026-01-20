@@ -30,6 +30,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get home_send_url_error => 'Error shortening this URL';
 
   @override
+  String get home_send_empty_url_error => 'Please enter a URL';
+
+  @override
   String get home_body_description =>
       'Enter the url in the field below and click the button at the bottom of the page to generate a shortcut.';
 }

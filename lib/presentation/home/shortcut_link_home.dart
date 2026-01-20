@@ -25,7 +25,10 @@ class ShortcutLinkHome extends HookConsumerWidget {
       floatingActionButton: ShortcutLinkFloatActionButtonAdd(
         isLoading: state.isLoading,
         onPressed: () async {
-          if (state.isLoading || textController.text.isEmpty) {
+          if (textController.text.isEmpty) {
+            controller.setErrorMessage(
+              context.translate.home_send_empty_url_error,
+            );
             return;
           }
 
@@ -51,10 +54,12 @@ class ShortcutLinkHome extends HookConsumerWidget {
           const SizedBox(height: 20),
           TextFormField(
             controller: textController,
+            onChanged: (_) => controller.setErrorMessage(null),
             enabled: !state.isLoading,
             decoration: InputDecoration(
               labelText: context.translate.home_input_label,
               hintText: context.translate.home_input_hint,
+              errorText: state.errorMessage,
             ),
           ),
           const SizedBox(height: 40),

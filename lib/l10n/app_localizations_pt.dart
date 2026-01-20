@@ -30,6 +30,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get home_send_url_error => 'Error ao encurtar está url';
 
   @override
+  String get home_send_empty_url_error => 'Por favor, insira uma url';
+
+  @override
   String get home_body_description =>
       'Insira a url no campo abaixo e click no botão no final da página para gerar um shortcut dele';
 }

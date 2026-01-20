@@ -6,6 +6,7 @@
   "home_card_subtitle": "Url encurtada",
   "home_input_label": "url",
   "home_send_url_error": "Error ao encurtar está url",
+  "home_send_empty_url_error": "Por favor, insira uma url",
   "home_input_hint": "Insira a url",
   "home_body_description": "Insira a url no campo abaixo e click no botão no final da página para gerar um shortcut dele"
 }

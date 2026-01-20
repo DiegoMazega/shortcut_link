@@ -18,3 +18,6 @@ TextStyle subtitleTextStyle() => TextStyle(
   fontWeight: FontWeight.w600,
   color: textSecondary(),
 );
+
+TextStyle errorTextStyle() =>
+    TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: errorColor());

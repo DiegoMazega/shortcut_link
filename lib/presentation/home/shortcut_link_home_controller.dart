@@ -28,7 +28,7 @@ class ShortcutLinkHomeController extends Notifier<ShortcutLinkHomeState> {
     }
   }
 
-  void setErrorMessage(String errorMessage) {
+  void setErrorMessage(String? errorMessage) {
     state = state.copyWith(errorMessage: errorMessage);
   }
 
