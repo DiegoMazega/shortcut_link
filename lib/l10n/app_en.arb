@@ -1,0 +1,11 @@
+{
+  "@@locale": "en",
+  "appTitle": "Shortcut Link",
+  "home_body_title": "Shortcut",
+  "home_input_label": "url",
+  "home_card_title": "Original URL",
+  "home_card_subtitle": "Shortened URL",
+  "home_input_hint": "Insert url",
+  "home_send_url_error": "Error shortening this URL",
+  "home_body_description": "Enter the url in the field below and click the button at the bottom of the page to generate a shortcut."
+}
