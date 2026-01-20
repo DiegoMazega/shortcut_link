@@ -4,7 +4,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:shortcut_link/domain/entities/shortcut_link_shortener_shortcut.dart';
 import 'package:shortcut_link/domain/entities/shortcut_link_shortner_response.dart';
 import 'package:shortcut_link/presentation/home/shortcut_link_home_controller.dart';
-import 'package:shortcut_link/presentation/home/shortcut_link_home_providers.dart'
+import 'package:shortcut_link/providers/shortcut_link_home_providers.dart'
     show shortcutLinkHomeControllerProvider;
 import 'package:shortcut_link/presentation/home/shortcut_link_home_state.dart';
 import 'package:shortcut_link/providers/shortcut_link_repository_provider.dart';

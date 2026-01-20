@@ -3,7 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shortcut_link/components/button/shortcut_link_float_action_button_add.dart';
 import 'package:shortcut_link/components/card/shortcut_link_card.dart';
-import 'package:shortcut_link/presentation/home/shortcut_link_home_providers.dart';
+import 'package:shortcut_link/providers/shortcut_link_home_providers.dart';
 
 import '../../components/app_bar/shortcut_link_app_bar.dart';
 import '../../utils/extensions/shortcut_link_context_extensions.dart';
@@ -23,6 +23,7 @@ class ShortcutLinkHome extends HookConsumerWidget {
       appBar: ShortcutLinkAppBar(title: context.translate.home_body_title),
 
       floatingActionButton: ShortcutLinkFloatActionButtonAdd(
+        key: const Key('add_button'),
         isLoading: state.isLoading,
         onPressed: () async {
           if (textController.text.isEmpty) {
@@ -53,6 +54,7 @@ class ShortcutLinkHome extends HookConsumerWidget {
           Text(context.translate.home_body_description),
           const SizedBox(height: 20),
           TextFormField(
+            key: const Key('url_input'),
             controller: textController,
             onChanged: (_) => controller.setErrorMessage(null),
             enabled: !state.isLoading,
