@@ -19,7 +19,7 @@ class ShortcutLinkHomeController extends Notifier<ShortcutLinkHomeState> {
 
     try {
       final response = await repository.sendUrl(url: url);
-      state = state.copyWith(shortLinkList: [...state.shortLinkList, response]);
+      addUrl(response);
       return true;
     } catch (e) {
       return false;
@@ -35,6 +35,12 @@ class ShortcutLinkHomeController extends Notifier<ShortcutLinkHomeState> {
   void removeUrl(ShortcutLinkShortnerResponse data) {
     final shallowCopy = [...state.shortLinkList];
     shallowCopy.remove(data);
+    state = state.copyWith(shortLinkList: shallowCopy);
+  }
+
+  void addUrl(ShortcutLinkShortnerResponse data) {
+    final shallowCopy = [...state.shortLinkList];
+    shallowCopy.add(data);
     state = state.copyWith(shortLinkList: shallowCopy);
   }
 }
