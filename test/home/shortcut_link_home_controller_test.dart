@@ -63,7 +63,7 @@ void main() {
   test('sendUrl should return false in case of error', () async {
     when(
       () => repository.sendUrl(url: any(named: 'url')),
-    ).thenThrow(Exception('erro'));
+    ).thenThrow(Exception('error'));
 
     final result = await controller().sendUrl('https://google.com');
 
@@ -78,7 +78,7 @@ void main() {
     expect(state().errorMessage, 'Any Error');
   });
 
-  test('addUrl deve adicionar item na lista', () {
+  test('addUrl should add item to the list', () {
     final data = mockResponseData();
 
     controller().addUrl(data);

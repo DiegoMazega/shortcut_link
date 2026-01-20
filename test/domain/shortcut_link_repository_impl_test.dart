@@ -20,10 +20,7 @@ void main() {
 
   final responseMockBody = {
     'alias': 'abc123',
-    '_links': {
-      'self': 'https://google.com',
-      'short': 'abc123',
-    },
+    '_links': {'self': 'https://google.com', 'short': 'abc123'},
   };
 
   test(
@@ -47,51 +44,41 @@ void main() {
     },
   );
 
-  test(
-   'sendUrl should throw an exception when status is not 2xx',
-    () async {
-      when(
-        () => client.post(
-          Uri.parse(baseEndpoint),
-          body: any(named: 'body'),
-          headers: any(named: 'headers'),
-        ),
-      ).thenAnswer(
-        (_) async => http.Response('Bad Request', 400),
-      );
+  test('sendUrl should throw an exception when status is not 2xx', () async {
+    when(
+      () => client.post(
+        Uri.parse(baseEndpoint),
+        body: any(named: 'body'),
+        headers: any(named: 'headers'),
+      ),
+    ).thenAnswer((_) async => http.Response('Bad Request', 400));
 
-      await expectLater(
-        repository.sendUrl(url: 'https://google.com'),
-        throwsException,
-      );
-    },
-  );
+    await expectLater(
+      repository.sendUrl(url: 'https://google.com'),
+      throwsException,
+    );
+  });
 
-  test(
-    'sendUrl must send the correct body and headers',
-    () async {
-      when(
-        () => client.post(
-          Uri.parse(baseEndpoint),
-          body: any(named: 'body'),
-          headers: any(named: 'headers'),
-        ),
-      ).thenAnswer(
-        (_) async => http.Response(jsonEncode(responseMockBody), 200),
-      );
+  test('sendUrl must send the correct body and headers', () async {
+    when(
+      () => client.post(
+        Uri.parse(baseEndpoint),
+        body: any(named: 'body'),
+        headers: any(named: 'headers'),
+      ),
+    ).thenAnswer((_) async => http.Response(jsonEncode(responseMockBody), 200));
 
-      await repository.sendUrl(url: 'https://google.com');
+    await repository.sendUrl(url: 'https://google.com');
 
-      verify(
-        () => client.post(
-          Uri.parse(baseEndpoint),
-          body: jsonEncode({'url': 'https://google.com'}),
-          headers: const {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-          },
-        ),
-      ).called(1);
-    },
-  );
+    verify(
+      () => client.post(
+        Uri.parse(baseEndpoint),
+        body: jsonEncode({'url': 'https://google.com'}),
+        headers: const {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+      ),
+    ).called(1);
+  });
 }
